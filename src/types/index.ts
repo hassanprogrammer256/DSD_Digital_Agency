@@ -1,10 +1,12 @@
 export type ProjectCategory = "web-development" | "seo" | "devops" | "mobile-app-development";
 
-export type ServiceAward = {
-  title: string;
-  issuer: string;
-  year: number;
-};
+export type ServiceCategory =
+  | "digital-marketing"
+  | "web-development"
+  | "design-branding"
+  | "mobile-app-development"
+  | "ecommerce-development"
+  | "smart-ai-services";
 
 export type ServiceStat = {
   label: string;
@@ -15,6 +17,7 @@ export type ServiceStat = {
 export type Service = {
   slug: string;
   title: string;
+  category: ServiceCategory;
   icon: string;
   summary: string;
   description: string;
@@ -22,7 +25,6 @@ export type Service = {
   heroHeadline: string;
   relatedProjectSlugs: string[];
   teamMemberSlugs: string[];
-  awards: ServiceAward[];
   stats: ServiceStat[];
 };
 
@@ -75,16 +77,26 @@ export type Founder = {
   photo: string;
 };
 
-export type ComplianceArea = {
+export type TechnologyCategory =
+  | "Frontend"
+  | "Backend"
+  | "Databases"
+  | "Mobile"
+  | "Ecommerce"
+  | "Smart AI"
+  | "Design Tools"
+  | "Integrations";
+
+export type Technology = {
+  name: string;
+  category: TechnologyCategory;
+};
+
+export type Industry = {
   slug: string;
-  number: number;
-  title: string;
+  name: string;
+  description: string;
   icon: string;
-  summary: string;
-  intro: string[];
-  obligationsLabel: string;
-  obligations: string[];
-  notes: string[];
 };
 
 export type LandingOffer = {

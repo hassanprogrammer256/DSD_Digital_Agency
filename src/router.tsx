@@ -4,8 +4,8 @@ import { HomePage } from "@/pages/HomePage";
 import { AboutPage } from "@/pages/AboutPage";
 import { ServicesPage } from "@/pages/ServicesPage";
 import { ServiceDetailPage } from "@/pages/ServiceDetailPage";
-import { CompliancePage } from "@/pages/CompliancePage";
-import { ComplianceDetailPage } from "@/pages/ComplianceDetailPage";
+import { TechnologiesPage } from "@/pages/TechnologiesPage";
+import { IndustriesPage } from "@/pages/IndustriesPage";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 import { ProjectDetailPage } from "@/pages/ProjectDetailPage";
 import { PricingPage } from "@/pages/PricingPage";
@@ -28,8 +28,8 @@ export const router = createBrowserRouter([
       { path: "/about", element: <AboutPage /> },
       { path: "/services", element: <ServicesPage /> },
       { path: "/services/:slug", element: <ServiceDetailPage /> },
-      { path: "/compliance", element: <CompliancePage /> },
-      { path: "/compliance/:slug", element: <ComplianceDetailPage /> },
+      { path: "/technologies", element: <TechnologiesPage /> },
+      { path: "/industries", element: <IndustriesPage /> },
       { path: "/projects", element: <ProjectsPage /> },
       { path: "/projects/:slug", element: <ProjectDetailPage /> },
       { path: "/pricing", element: <PricingPage /> },

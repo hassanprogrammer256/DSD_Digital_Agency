@@ -10,7 +10,8 @@ const QUICK_LINKS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/compliance", label: "Company Compliance" },
+  { to: "/technologies", label: "Technologies" },
+  { to: "/industries", label: "Industries" },
   { to: "/projects", label: "Projects" },
   { to: "/pricing", label: "Pricing" },
   { to: "/contact", label: "Contact" },
@@ -40,8 +41,8 @@ export function Footer() {
           <div>
             <img src={logo} alt="DSD" className="h-11 w-auto object-contain" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-              DSD is a full-service digital agency helping businesses build, market, and grow
-              their online presence.
+              DSD is a digital marketing agency helping businesses grow their brand, connect
+              with customers, and increase sales online.
             </p>
             <div className="mt-5 flex items-center gap-2">
               {SOCIAL_LINKS.map(({ href, label, Icon }) => (

@@ -13,7 +13,18 @@
 | Phone | +91 7585889093 |
 | Email | info@dsdgrp.com |
 
-DSD's core offering maps onto five foundational digital marketing categories — **SEO** (getting a site found on search engines), **Social Media Management** (organic content and community presence), **Paid Advertising / PPC** (budget-controlled ads for fast traffic), **Web Design** (fast, mobile-friendly websites — DSD's **Website Development** service), and **Content & Email Marketing** (blogs, newsletters, and automated emails) — plus DSD's own differentiated additions: **Web App Development**, **Custom System Development**, **Corporate Business Consulting**, **Website Hosting**, and **UAE Business Setup & Advisory** (company incorporation, residency pathways, and regulatory compliance — added 2026-08-26, its voice and category structure adapted from [emiracle.ae](https://emiracle.ae), a UAE business-setup advisory firm, per explicit request; see `progress-tracker.md`). 10 services total.
+DSD is strictly a **digital marketing agency** — not a corporate-services or business-setup provider, and the site is built to never be confused with one (see `progress-tracker.md`'s 2026-08-27 entry for the corporate-content removal this restriction triggered). Its offering spans **20 services across 6 categories**, referenced against Digital Graphiks' (digitalgraphiks.ae) category structure:
+
+| Category | Services |
+| --- | --- |
+| **Digital Marketing** | SEO Optimization, Paid Advertising (PPC), Social Media Management, Content & Email Marketing, Influencer Marketing |
+| **Web Development** | Website Development, Web App Development, Custom System Development, Website Hosting |
+| **Design & Branding** | Logo Design, UI/UX Design, Graphic Design, Video & Motion Animation |
+| **Mobile App Development** | iOS App Development, Android App Development, Cross-Platform App Development |
+| **Ecommerce Development** | Shopify Store Development, Custom Ecommerce Solutions |
+| **Smart AI Services** | AI Chatbot Development, Generative AI Integration |
+
+Digital Graphiks' "Next-Gen/IT Services" category (IT consulting, cyber security, dedicated dev teams, IT outsourcing) was deliberately excluded — it reads as enterprise/corporate IT consulting, the exact positioning DSD is avoiding.
 
 ---
 
@@ -41,11 +52,17 @@ There are no user accounts, logins, or roles anywhere on this site — every vis
                                             featured projects, testimonials, contact CTA
 /about                                   → About DSD — story, mission, founder, why-choose-us,
                                             Dubai office
-/services                                → Full service list (all 8 offerings, detailed) + a
-                                            team carousel (10 members) further down the page
+/services                                → Full service list (20 offerings, detailed, grouped
+                                            into 6 categories) + a team carousel (10 members)
+                                            further down the page
 /services/:slug                          → Service detail — hero, Hire Us / View Pricing CTAs,
                                             per-service stats, related projects, team members,
                                             awards & achievements
+/technologies                            → The real technology stack behind DSD's work, grouped
+                                            by Frontend/Backend/Databases/Mobile/Ecommerce/
+                                            Smart AI/Design Tools/Integrations
+/industries                              → Industries DSD has built for, evidenced by its own
+                                            portfolio
 /team/:slug                              → Team member detail — photo, name, role, full bio,
                                             contact links
 /projects                                → Portfolio — filterable by category (Web Development /
@@ -71,11 +88,11 @@ No route requires authentication — the whole site is public.
 
 Top utility bar (desktop only): a short tagline on the left, phone + email + social icons on the right — matches the reference template's utility strip.
 
-Main nav (sticky on scroll): **Logo** · Home · About · **Services** (dropdown — links to each of the 8 services' own detail page, `/services/:slug`, plus "Meet the Team" → `/services#team`) · Projects · Pricing · Contact · a standalone **Contact Us** button (accent-colored, always visible — the one persistent call-to-action). Services is the only dropdown — it's the one item with genuinely many children; every other item is a flat single link.
+Main nav (sticky on scroll): **Logo** · Home · About · **Services** (a categorized mega-menu — 6 labeled columns, one per service category, each linking to its services' own detail pages, plus "Meet the Team" / "Technologies" / "Industries We Serve" as flat links below the grid) · Projects · Pricing · **Legal** (dropdown — Cookie Policy / Privacy Policy / Partner With Us / Website Disclaimer) · Contact · a standalone **Contact Us** button (accent-colored, always visible — the one persistent call-to-action).
 
-Mobile: main nav collapses into a slide-in drawer (a custom `framer-motion` panel) containing the same links stacked, plus the Contact Us button. The Services dropdown becomes a tap-to-expand accordion (a hover panel doesn't translate to touch).
+Mobile: main nav collapses into a slide-in drawer (a custom `framer-motion` panel) containing the same links stacked, plus the Contact Us button. The Services accordion renders its 6 categories as plain label dividers over a flat, scrollable link list (not a second level of accordion) — kept simple rather than nesting interaction levels.
 
-Footer (every page): logo + one-line agency description, **Quick Links** column (Home/About/Services/Projects/Pricing/Contact), **Services** column (all 8 offerings, each linking to its own `/services/:slug` page), **Contact** column (address, phone, email, social icons), bottom bar with copyright plus a legal link row (Cookie Policy / Privacy Policy / Partner With Us / Website Disclaimer).
+Footer (every page): logo + one-line agency description, **Quick Links** column (Home/About/Services/Technologies/Industries/Projects/Pricing/Contact), **Services** column (all 20 offerings, each linking to its own `/services/:slug` page), **Contact** column (address, phone, email, social icons), bottom bar with copyright plus a legal link row (Cookie Policy / Privacy Policy / Partner With Us / Website Disclaimer).
 
 ---
 
@@ -86,7 +103,7 @@ Footer (every page): logo + one-line agency description, **Quick Links** column 
 1. Lands on **Home** — sees the hero (headline + subheadline + CTA over a background photo), a quick-glance services strip, and stat counters (projects delivered, clients served, years active, awards).
 2. Scrolls to **Featured Projects** — a handful of portfolio highlights pulled from the same data source as the full `/projects` page.
 3. Reads **Testimonials** for social proof, then hits the closing **CTA section** ("Ready to grow your business?") linking to `/contact`.
-4. Optionally visits **/services** for the full breakdown of what DSD offers (via the nav's Services dropdown, which links straight to any of the 8 offerings or to the team carousel further down the same page), or **/projects** to filter the whole portfolio by category and open individual project detail pages.
+4. Optionally visits **/services** for the full breakdown of what DSD offers (via the nav's categorized Services mega-menu, which links straight to any of the 20 offerings, the team carousel, **/technologies**, or **/industries**), or **/projects** to filter the whole portfolio by category and open individual project detail pages.
 5. On a **project detail page**, the visitor can open the project's **live preview** in a new tab, open its **GitHub repository** in a new tab, browse its **screenshots**, read its functionality list, and see **similar projects** (same category) linked below.
 6. On **/services**, scrolling to the **team carousel** and clicking a member opens their **/team/:slug** detail page (full bio, contact links); an unrecognized slug redirects back to the carousel rather than showing a broken page.
 7. Optionally visits **/about** to read DSD's story and meet the founder, or **/pricing** to see illustrative starting-point tiers — every tier's CTA leads to **/contact**, since this site has no checkout.
@@ -103,8 +120,10 @@ Footer (every page): logo + one-line agency description, **Quick Links** column 
 
 - Fully static, responsive marketing site (mobile/tablet/desktop)
 - Home page: hero, services overview, stats counters, about teaser, featured projects, testimonials, closing CTA
-- Full Services page — all 8 offerings with descriptions, plus a 10-person team carousel
+- Full Services page — all 20 offerings with descriptions, grouped into 6 categories, plus a 10-person team carousel
 - Service detail pages (`/services/:slug`) — hero, Hire Us / View Pricing CTAs, per-service stats, related portfolio projects, team members, awards & achievements
+- Technologies page (`/technologies`) — the real stack behind DSD's work, grouped by category
+- Industries page (`/industries`) — industries DSD has built for, evidenced by its own portfolio
 - Team member detail pages (`/team/:slug`) — photo, role, full bio, contact links
 - Portfolio (`/projects`) filterable by category: Web Development, SEO, DevOps, Mobile App Development
 - Project detail pages: screenshot gallery, live preview link, GitHub repository link, description, feature/functionality list, similar/related projects
@@ -146,4 +165,4 @@ Footer (every page): logo + one-line agency description, **Quick Links** column 
 - **Layout & section rhythm:** `context/designs/layout.jpg` — a full-page capture of the [TemplateMo Finance Business](https://templatemo.com/live/templatemo_545_finance_business) template. Use this for section order, card layout, spacing rhythm, and component shapes (hero carousel, 3-up service cards, dark stat-counter strip, split about section, testimonial cards, contact form band, multi-column footer). Do **not** copy its green accent color or its stock photography — those are replaced by DSD's own red/blue/white brand and photography.
 - **Brand colors:** `public/dsd_logo.png` — the DSD mark's red, navy blue, and white define the entire palette (see `ui-tokens.md`).
 - **Live brand/content reference:** [dsd-client.vercel.app](https://dsd-client.vercel.app/) — an existing DSD-branded deployment; use it as a secondary reference for tone, photography style, and hero imagery. It is a client-rendered SPA that automated tooling could not scrape for exact colors/copy during this planning pass — cross-check it manually in a browser before finalizing hero imagery and any copy lifted from it.
-- **Voice reference (Hero + the UAE Business Setup & Advisory service):** [emiracle.ae](https://emiracle.ae) — a UAE business-setup/residency advisory firm. Its confident, results-oriented, "simplify the decision, then execute it" copywriting style is adapted into DSD's own Hero headline/subheadline and the new 8th service's copy — the *style* was adapted, not Emiracle's own client-count/years-in-market numbers, which belong to them, not DSD. See `progress-tracker.md` for the full reasoning.
+- **Service category structure (2026-08-27):** [digitalgraphiks.ae](https://digitalgraphiks.ae) — a Dubai digital agency, referenced for its service-category taxonomy (Digital Marketing / Design / Web Development / Mobile App Development / Ecommerce / Smart AI) and its Technologies/Industries page structure. Its "Next-Gen/IT Services" category (IT consulting, cyber security, dedicated dev teams) was deliberately not adopted — see `progress-tracker.md`. Category *structure* was referenced, not its copy — every service's wording is DSD's own.

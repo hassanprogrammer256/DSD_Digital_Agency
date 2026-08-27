@@ -1,5 +1,4 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import { Trophy } from "lucide-react";
 import { CtaButton } from "@/components/common/CtaButton";
 import { StatCounter } from "@/components/common/StatCounter";
 import { SectionHeading } from "@/components/common/SectionHeading";
@@ -96,28 +95,6 @@ export function ServiceDetailPage() {
             <div className="mt-10 flex flex-wrap justify-center gap-6">
               {relatedTeam.map((member) => (
                 <TeamMemberCard key={member.slug} member={member} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {service.awards.length > 0 && (
-        <section className="bg-surface-secondary px-4 py-16 md:px-6 md:py-20">
-          <div className="mx-auto max-w-3xl">
-            <SectionHeading eyebrow="Recognition" title="Awards &" highlight="Achievements" />
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {service.awards.map((award) => (
-                <div
-                  key={award.title}
-                  className="rounded-xl border border-border bg-surface p-6 text-left"
-                >
-                  <Trophy size={24} className="text-accent" />
-                  <p className="mt-3 font-semibold text-text-primary">{award.title}</p>
-                  <p className="mt-1 text-sm text-text-secondary">
-                    {award.issuer} — {award.year}
-                  </p>
-                </div>
               ))}
             </div>
           </div>

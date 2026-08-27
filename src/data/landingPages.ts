@@ -8,8 +8,8 @@ import type { LandingOffer } from "@/types";
 // whole point — an ad promising "Get a Free Website Audit" must land on a page that says the
 // same thing within the first second, not a generic homepage).
 //
-// Both offers below are tied to real, already-built DSD services (`relatedServiceSlug`) and
-// use generic, honest lead-magnet framing — no fabricated stats, client counts, or urgency
+// Each offer below is tied to a real, already-built DSD service (`relatedServiceSlug`) and
+// uses generic, honest lead-magnet framing — no fabricated stats, client counts, or urgency
 // claims. Add a new entry here (plus one ad) to spin up another campaign; nothing else in the
 // route or component needs to change.
 export const landingOffers: LandingOffer[] = [
@@ -30,23 +30,5 @@ export const landingOffers: LandingOffer[] = [
     thankYouHeadline: "Your audit request is in.",
     thankYouBody: "A DSD specialist will review your site and email your audit within 2 business days.",
     nextStepNote: "Check your inbox — that's where your audit will land.",
-  },
-  {
-    slug: "free-business-setup-consultation",
-    headline: "Get a Free UAE Business Setup Consultation",
-    subheadline: "Talk through your options — mainland, free zone, licensing, and residency — with someone who can map out the right path for your business.",
-    hookTitle: "What the call covers",
-    hookPoints: [
-      "Which jurisdiction and license type actually fits your business",
-      "A realistic view of costs, timelines, and next steps",
-      "Straight answers — no obligation to move forward afterward",
-    ],
-    ctaLabel: "Book My Free Call",
-    formTitle: "Book Your Free Consultation",
-    testimonialId: "rania-khalil",
-    relatedServiceSlug: "business-setup-advisory",
-    thankYouHeadline: "Your call request is in.",
-    thankYouBody: "A DSD advisor will reach out within 1 business day to find a time that works for you.",
-    nextStepNote: "Keep an eye on your phone and inbox — we'll reach out shortly.",
   },
 ];

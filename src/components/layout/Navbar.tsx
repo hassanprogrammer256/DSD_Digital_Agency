@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { ChevronDown, Mail, Menu, Phone, Users, X, type LucideIcon } from "lucide-react";
+import { Building2, ChevronDown, Cpu, Mail, Menu, Phone, Users, X, type LucideIcon } from "lucide-react";
 import { CtaButton } from "@/components/common/CtaButton";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
-import { services } from "@/data/services";
-import { complianceAreas } from "@/data/compliance";
-import { serviceIcons, complianceIcons } from "@/lib/icons";
+import { services, serviceCategoryMeta } from "@/data/services";
 
 // public/dsd_logo.png is served as-is from the root — referenced by string path, not
 // imported, per Vite's convention for the public/ directory (see architecture.md).
 const logo = "/dsd_logo.png";
 
 type NavDropdownItem = { to: string; label: string; icon?: LucideIcon };
+type NavGroup = { label: string; items: NavDropdownItem[] };
 
 type NavItem = {
   to: string;
   label: string;
   dropdown?: NavDropdownItem[];
-  layout?: "grid" | "list";
+  groups?: NavGroup[];
+  extraLinks?: NavDropdownItem[];
+  layout?: "categorized" | "list";
 };
 
 const NAV_LINKS: NavItem[] = [
@@ -27,25 +28,18 @@ const NAV_LINKS: NavItem[] = [
   {
     to: "/services",
     label: "Services",
-    layout: "grid",
-    dropdown: [
-      ...services.map((service) => ({
-        to: `/services/${service.slug}`,
-        label: service.title,
-        icon: serviceIcons[service.icon],
-      })),
-      { to: "/services#team", label: "Meet the Team", icon: Users },
-    ],
-  },
-  {
-    to: "/compliance",
-    label: "Compliance",
-    layout: "grid",
-    dropdown: complianceAreas.map((area) => ({
-      to: `/compliance/${area.slug}`,
-      label: area.title,
-      icon: complianceIcons[area.icon],
+    layout: "categorized",
+    groups: serviceCategoryMeta.map((category) => ({
+      label: category.label,
+      items: services
+        .filter((service) => service.category === category.slug)
+        .map((service) => ({ to: `/services/${service.slug}`, label: service.title })),
     })),
+    extraLinks: [
+      { to: "/services#team", label: "Meet the Team", icon: Users },
+      { to: "/technologies", label: "Technologies", icon: Cpu },
+      { to: "/industries", label: "Industries We Serve", icon: Building2 },
+    ],
   },
   { to: "/projects", label: "Projects" },
   { to: "/pricing", label: "Pricing" },
@@ -131,87 +125,113 @@ export function Navbar() {
             </Link>
 
             <div className="hidden items-center gap-8 md:flex">
-              {NAV_LINKS.map((link) => (
-                <div
-                  key={link.label}
-                  className="relative"
-                  onMouseEnter={() => link.dropdown && setOpenDropdown(link.label)}
-                  onMouseLeave={() => link.dropdown && setOpenDropdown(null)}
-                >
-                  <NavLink
-                    to={link.to}
-                    end={link.to === "/"}
-                    className={({ isActive }) =>
-                      `relative flex items-center gap-1 py-1 text-[15px] font-medium transition-colors ${
-                        isActive
-                          ? "text-primary"
-                          : transparent
-                            ? "text-white/90 hover:text-white"
-                            : "text-text-primary hover:text-primary"
-                      }`
-                    }
+              {NAV_LINKS.map((link) => {
+                const hasDropdown = Boolean(link.dropdown || link.groups);
+                return (
+                  <div
+                    key={link.label}
+                    className="relative"
+                    onMouseEnter={() => hasDropdown && setOpenDropdown(link.label)}
+                    onMouseLeave={() => hasDropdown && setOpenDropdown(null)}
                   >
-                    {({ isActive }) => (
-                      <>
-                        {link.label}
-                        {link.dropdown && <ChevronDown size={14} />}
-                        {isActive && (
-                          <motion.span
-                            layoutId="nav-underline"
-                            className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary"
-                            transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                          />
-                        )}
-                      </>
-                    )}
-                  </NavLink>
+                    <NavLink
+                      to={link.to}
+                      end={link.to === "/"}
+                      className={({ isActive }) =>
+                        `relative flex items-center gap-1 py-1 text-[15px] font-medium transition-colors ${
+                          isActive
+                            ? "text-primary"
+                            : transparent
+                              ? "text-white/90 hover:text-white"
+                              : "text-text-primary hover:text-primary"
+                        }`
+                      }
+                    >
+                      {({ isActive }) => (
+                        <>
+                          {link.label}
+                          {hasDropdown && <ChevronDown size={14} />}
+                          {isActive && (
+                            <motion.span
+                              layoutId="nav-underline"
+                              className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary"
+                              transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                            />
+                          )}
+                        </>
+                      )}
+                    </NavLink>
 
-                  <AnimatePresence>
-                    {link.dropdown && openDropdown === link.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.15 }}
-                        className={`absolute top-full mt-3 rounded-xl border border-border bg-surface p-2 shadow-lg ${
-                          link.layout === "grid"
-                            ? "left-0 w-[640px] max-w-[92vw]"
-                            : "left-1/2 w-64 -translate-x-1/2"
-                        }`}
-                      >
-                        {link.layout === "grid" ? (
-                          <div className="grid grid-cols-3 gap-1">
-                            {link.dropdown.map((item) => (
+                    <AnimatePresence>
+                      {hasDropdown && openDropdown === link.label && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.15 }}
+                          className={`absolute top-full mt-3 rounded-xl border border-border bg-surface p-4 shadow-lg ${
+                            link.layout === "categorized"
+                              ? "left-0 w-[720px] max-w-[92vw]"
+                              : "left-1/2 w-64 -translate-x-1/2 p-2"
+                          }`}
+                        >
+                          {link.layout === "categorized" && link.groups ? (
+                            <>
+                              <div className="grid grid-cols-3 gap-x-6 gap-y-5">
+                                {link.groups.map((group) => (
+                                  <div key={group.label}>
+                                    <p className="text-xs font-semibold uppercase tracking-wide text-text-muted">
+                                      {group.label}
+                                    </p>
+                                    <div className="mt-2 flex flex-col gap-1">
+                                      {group.items.map((item) => (
+                                        <Link
+                                          key={item.to}
+                                          to={item.to}
+                                          onClick={() => setOpenDropdown(null)}
+                                          className="rounded-md px-2 py-1.5 text-sm text-text-primary transition-colors hover:bg-surface-secondary hover:text-primary"
+                                        >
+                                          {item.label}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                              {link.extraLinks && link.extraLinks.length > 0 && (
+                                <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-4">
+                                  {link.extraLinks.map((item) => (
+                                    <Link
+                                      key={item.to}
+                                      to={item.to}
+                                      onClick={() => setOpenDropdown(null)}
+                                      className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-dark"
+                                    >
+                                      {item.icon && <item.icon size={15} />}
+                                      {item.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            link.dropdown?.map((item) => (
                               <Link
                                 key={item.to}
                                 to={item.to}
                                 onClick={() => setOpenDropdown(null)}
-                                className="flex items-start gap-2.5 rounded-md px-3 py-2.5 text-sm text-text-primary transition-colors hover:bg-surface-secondary hover:text-primary"
+                                className="block rounded-md px-3 py-2 text-sm text-text-primary transition-colors hover:bg-surface-secondary hover:text-primary"
                               >
-                                {item.icon && (
-                                  <item.icon size={16} className="mt-0.5 shrink-0 text-primary" />
-                                )}
-                                <span>{item.label}</span>
+                                {item.label}
                               </Link>
-                            ))}
-                          </div>
-                        ) : (
-                          link.dropdown.map((item) => (
-                            <Link
-                              key={item.to}
-                              to={item.to}
-                              onClick={() => setOpenDropdown(null)}
-                              className="block rounded-md px-3 py-2 text-sm text-text-primary transition-colors hover:bg-surface-secondary hover:text-primary"
-                            >
-                              {item.label}
-                            </Link>
-                          ))
-                        )}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
+                            ))
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="flex items-center gap-2 md:gap-3">
@@ -266,7 +286,7 @@ export function Navbar() {
 
               <div className="mt-10 flex flex-col gap-1">
                 {NAV_LINKS.map((link) =>
-                  link.dropdown ? (
+                  link.dropdown || link.groups ? (
                     <div key={link.label}>
                       <div className="flex items-center rounded-md">
                         <NavLink
@@ -305,17 +325,50 @@ export function Navbar() {
                             transition={{ duration: 0.2 }}
                             className="overflow-hidden pl-4"
                           >
-                            {link.dropdown.map((item) => (
-                              <Link
-                                key={item.to}
-                                to={item.to}
-                                onClick={closeMobileMenu}
-                                className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-sm text-white/65 hover:text-white"
-                              >
-                                {item.icon && <item.icon size={15} className="shrink-0" />}
-                                {item.label}
-                              </Link>
-                            ))}
+                            {link.groups
+                              ? link.groups.map((group) => (
+                                  <div key={group.label} className="mb-3">
+                                    <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-white/45">
+                                      {group.label}
+                                    </p>
+                                    {group.items.map((item) => (
+                                      <Link
+                                        key={item.to}
+                                        to={item.to}
+                                        onClick={closeMobileMenu}
+                                        className="block rounded-md px-3 py-2 text-sm text-white/65 hover:text-white"
+                                      >
+                                        {item.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                ))
+                              : link.dropdown?.map((item) => (
+                                  <Link
+                                    key={item.to}
+                                    to={item.to}
+                                    onClick={closeMobileMenu}
+                                    className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-sm text-white/65 hover:text-white"
+                                  >
+                                    {item.icon && <item.icon size={15} className="shrink-0" />}
+                                    {item.label}
+                                  </Link>
+                                ))}
+                            {link.extraLinks && link.extraLinks.length > 0 && (
+                              <div className="mt-2 flex flex-col gap-1 border-t border-white/10 pt-3">
+                                {link.extraLinks.map((item) => (
+                                  <Link
+                                    key={item.to}
+                                    to={item.to}
+                                    onClick={closeMobileMenu}
+                                    className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-sm text-white/85 hover:text-white"
+                                  >
+                                    {item.icon && <item.icon size={15} className="shrink-0" />}
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
                           </motion.div>
                         )}
                       </AnimatePresence>

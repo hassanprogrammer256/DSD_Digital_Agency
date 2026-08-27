@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ServiceCard } from "@/components/common/ServiceCard";
+import { SectionHeading } from "@/components/common/SectionHeading";
 import { TeamCarousel } from "@/components/sections/TeamCarousel";
 import { CtaButton } from "@/components/common/CtaButton";
 import { PageHeroBanner } from "@/components/common/PageHeroBanner";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
-import { services } from "@/data/services";
+import { services, serviceCategoryMeta } from "@/data/services";
 import servicesBanner from "@/assets/images/hero/home_hero_bg.png";
 
 export function ServicesPage() {
@@ -22,18 +23,30 @@ export function ServicesPage() {
       />
 
       <section className="bg-surface px-4 py-16 md:px-6 md:py-20">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.slug}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: (index % 3) * 0.05 }}
-            >
-              <ServiceCard service={service} colorIndex={index} detailed />
-            </motion.div>
-          ))}
+        <div className="mx-auto flex max-w-7xl flex-col gap-16">
+          {serviceCategoryMeta.map((category) => {
+            const categoryServices = services.filter((service) => service.category === category.slug);
+            if (categoryServices.length === 0) return null;
+
+            return (
+              <div key={category.slug}>
+                <SectionHeading align="left" title={category.label} />
+                <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {categoryServices.map((service, index) => (
+                    <motion.div
+                      key={service.slug}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.4, delay: (index % 3) * 0.05 }}
+                    >
+                      <ServiceCard service={service} colorIndex={index} detailed />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

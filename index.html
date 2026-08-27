@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/dsd_logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>DSD — Digital Marketing Agency</title>
+    <meta
+      name="description"
+      content="DSD is a full-service digital agency in Dubai — websites, web apps, custom systems, SEO, hosting, social media advertising, and UAE business setup advisory."
+    />
+    <meta name="theme-color" content="#0A1B33" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DSD" />
+    <meta property="og:title" content="DSD — Digital Marketing Agency" />
+    <meta
+      property="og:description"
+      content="DSD is a full-service digital agency in Dubai — websites, web apps, custom systems, SEO, hosting, social media advertising, and UAE business setup advisory."
+    />
+    <meta property="og:image" content="/dsd_logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="DSD — Digital Marketing Agency" />
+    <meta
+      name="twitter:description"
+      content="DSD is a full-service digital agency in Dubai — websites, web apps, custom systems, SEO, hosting, social media advertising, and UAE business setup advisory."
+    />
+    <script>
+      // Applies the stored/system theme before first paint so there is never a flash of
+      // the wrong theme. Kept inline and dependency-free — src/theme/theme.ts re-derives
+      // and owns this same logic for use after React mounts (e.g. the theme toggle).
+      (function () {
+        try {
+          var stored = localStorage.getItem("dsd-theme");
+          var mode = stored === "light" || stored === "dark"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", mode);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

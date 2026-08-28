@@ -7,7 +7,7 @@ import { CtaButton } from "@/components/common/CtaButton";
 import { PageHeroBanner } from "@/components/common/PageHeroBanner";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { services, serviceCategoryMeta } from "@/data/services";
-import servicesBanner from "@/assets/images/hero/home_hero_bg.png";
+import servicesBanner from "@/assets/images/hero/services_hero.jpg";
 
 export function ServicesPage() {
   useDocumentTitle("Services");
@@ -16,7 +16,7 @@ export function ServicesPage() {
     <>
       <PageHeroBanner
         image={servicesBanner}
-        imagePosition="70% 30%"
+        imagePosition="center 25%"
         eyebrow="What We Do"
         title={<>Our <span className="text-accent">Services</span></>}
         description="From building your website to growing it, DSD covers every part of your digital presence."

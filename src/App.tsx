@@ -27,12 +27,6 @@ export function App() {
   }, [location.pathname, location.hash]);
 
   return (
-    // bg-background/text-text-primary are set explicitly here, not left to `body` — Joy's
-    // CssBaseline applies its own background from Joy's internal palette, which is frozen
-    // at light mode (joyTheme.ts's defaultMode is never toggled) and would otherwise show
-    // through as a stray white background in dark mode wherever a page's own content is
-    // shorter than the viewport. This div owning the background outright sidesteps that
-    // cascade fight entirely instead of trying to out-specificity CssBaseline.
     <div className="flex min-h-screen flex-col bg-background text-text-primary">
       <Navbar />
       <AnimatePresence mode="wait">

@@ -5,7 +5,7 @@ import { CtaButton } from "@/components/common/CtaButton";
 import { PageHeroBanner } from "@/components/common/PageHeroBanner";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { pricingTiers } from "@/data/pricing";
-import pricingBanner from "@/assets/images/hero/home_hero_bg.png";
+import pricingBanner from "@/assets/images/hero/pricing_hero.jpg";
 
 export function PricingPage() {
   useDocumentTitle("Pricing");
@@ -14,7 +14,7 @@ export function PricingPage() {
     <>
       <PageHeroBanner
         image={pricingBanner}
-        imagePosition="35% 65%"
+        imagePosition="center"
         eyebrow="Pricing"
         title={<>Plans That <span className="text-accent">Fit Your Business</span></>}
         description="Every project starts with a conversation — these are starting points, not a fixed menu. Reach out and we'll scope it to what you actually need."

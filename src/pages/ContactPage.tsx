@@ -9,7 +9,7 @@ import { sendContactMessage } from "@/lib/email";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { contactSchema, type ContactFormValues } from "@/lib/validation/contactSchema";
 import contactPhoto from "@/assets/contact1.png";
-import contactBanner from "@/assets/images/hero/home_hero_bg.png";
+import contactBanner from "@/assets/images/hero/contact_hero.jpg";
 
 export function ContactPage() {
   useDocumentTitle("Contact");
@@ -36,7 +36,7 @@ export function ContactPage() {
     <>
       <PageHeroBanner
         image={contactBanner}
-        imagePosition="60% 25%"
+        imagePosition="center 35%"
         eyebrow="Get In Touch"
         title="Contact Us"
         description="Tell us what you're building — we'll get back to you within one business day."

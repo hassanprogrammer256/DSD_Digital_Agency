@@ -43,10 +43,6 @@ export const router = createBrowserRouter([
       { path: "*", element: <NotFoundPage /> },
     ],
   },
-  // Landing pages are deliberately siblings of the <App/> layout route, not children of it —
-  // they must render with no Navbar/Footer/CookieConsentBanner (see LandingPage.tsx's own
-  // comment). React Router ranks route matches by path specificity across the whole tree, so
-  // these two literal/dynamic paths still win over App's own `*` catch-all above.
   { path: "/lp/:slug", element: <LandingPage /> },
   { path: "/lp/:slug/thank-you", element: <LandingThankYouPage /> },
 ]);

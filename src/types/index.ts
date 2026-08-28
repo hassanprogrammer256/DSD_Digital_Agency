@@ -23,6 +23,7 @@ export type Service = {
   description: string;
   included: string[];
   heroHeadline: string;
+  heroImage: string;
   relatedProjectSlugs: string[];
   teamMemberSlugs: string[];
   stats: ServiceStat[];

@@ -1,10 +1,15 @@
 import type { ReactNode } from "react";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 
-// REAL legal content, transcribed verbatim from "Privacy Policy for dsd cop.docx" (supplied
-// 2026-08-27) — not placeholder boilerplate. See progress-tracker.md for the identity
-// discrepancy this content surfaced. Do not paraphrase or alter this page's wording without
-// updating the source document first.
+// Rewritten 2026-08-28 for DSD's real identity and business as a digital marketing agency.
+// The previous version of this page was transcribed verbatim from "Privacy Policy for dsd
+// cop.docx" (supplied 2026-08-27), a source document written for an unrelated UAE
+// company-formation/immigration business ("DSD Corporate Services") — see
+// progress-tracker.md for the discrepancy and the explicit user decision to resolve it by
+// rewriting this page for DSD's actual business, not just swapping the contact block.
+// Categories of data below are grounded in what this codebase actually collects/sends (see
+// src/lib/email.ts and src/data/cookieInventory.ts) rather than invented — e.g. no analytics
+// or ad-pixel data is claimed because none is wired into the site today.
 
 function Section({ number, title, children }: { number: number; title: string; children: ReactNode }) {
   return (
@@ -35,77 +40,53 @@ export function PrivacyPolicyPage() {
       <div className="mx-auto max-w-2xl">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">Legal</p>
         <h1 className="mt-2 text-3xl font-bold text-text-primary md:text-4xl">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-text-muted">Effective date: 26 August 2026</p>
+        <p className="mt-2 text-sm text-text-muted">Effective date: 28 August 2026</p>
 
         <Section number={1} title="Introduction">
           <p>
-            DSD Corporate Services ("DSD," "we," "us" or "our") respects your privacy and is
-            committed to protecting the personal information entrusted to us.
+            DSD ("DSD," "we," "us" or "our") is a digital marketing agency, and we respect your
+            privacy and are committed to protecting the personal information entrusted to us.
           </p>
           <p>This Privacy Policy explains how we collect, use, store, disclose and protect personal information when you:</p>
           <List
             items={[
-              "Visit www.dsdcop.com",
-              "Submit an enquiry or request a quotation",
-              "Apply for or purchase our services",
-              "Communicate with us by email, telephone, messaging applications or social media",
-              "Visit our office",
-              "Act as a shareholder, director, manager, employee, representative or beneficial owner of one of our clients; or",
-              "Otherwise interact with DSD.",
+              "Visit www.dsdgrp.com",
+              "Submit an enquiry, request a quotation, or fill out a landing-page lead form",
+              "Engage us for website development, digital marketing, design, app development, ecommerce, or AI services",
+              "Communicate with us by email, telephone, WhatsApp, or social media",
+              "Visit our Dubai office; or",
+              "Otherwise interact with DSD as a client, prospective client, or referral partner.",
             ]}
           />
           <p>
-            For the purposes of applicable data-protection law, DSD Corporate Services will
-            generally act as the controller of the personal information described in this
-            Privacy Policy.
+            For the purposes of applicable data-protection law, DSD will generally act as the
+            controller of the personal information described in this Privacy Policy.
           </p>
         </Section>
 
         <Section number={2} title="Personal information we collect">
-          <p>Depending on the nature of your enquiry or service, we may collect the following categories of personal information.</p>
+          <p>Depending on the nature of your enquiry or the services engaged, we may collect the following categories of personal information.</p>
 
-          <p className="font-semibold text-text-primary">Identity information</p>
+          <p className="font-semibold text-text-primary">Contact information</p>
           <p>This may include:</p>
           <List
             items={[
               "Full name",
-              "Date and place of birth",
-              "Nationality",
-              "Gender",
-              "Photograph",
-              "Signature",
-              "Passport information",
-              "Emirates ID information",
-              "Visa and immigration information; and",
-              "Other government-issued identification.",
-            ]}
-          />
-
-          <p className="mt-4 font-semibold text-text-primary">Contact information</p>
-          <p>This may include:</p>
-          <List
-            items={[
-              "Residential or business address",
+              "Business or residential address",
               "Email address",
-              "Telephone number",
-              "Emergency contact information; and",
+              "Telephone or WhatsApp number; and",
               "Preferred communication method.",
             ]}
           />
 
-          <p className="mt-4 font-semibold text-text-primary">Corporate and professional information</p>
-          <p>This may include:</p>
+          <p className="mt-4 font-semibold text-text-primary">Business information</p>
+          <p>Where you engage us as a client, this may include:</p>
           <List
             items={[
-              "Company name and legal form",
-              "Trade-licence information",
-              "Business activities",
-              "Shareholding and ownership information",
-              "Director, manager and authorised-signatory information",
-              "Employment and professional background",
-              "Beneficial-ownership information",
-              "Company constitutional documents; and",
-              "Information concerning existing or proposed businesses.",
+              "Company name, industry, and website",
+              "Job title or role at the company",
+              "Business goals, target audience, and brand materials you provide us; and",
+              "Access credentials to advertising, analytics, hosting, or social-media accounts you authorise us to manage on your behalf.",
             ]}
           />
 
@@ -113,31 +94,28 @@ export function PrivacyPolicyPage() {
           <p>This may include:</p>
           <List
             items={[
-              "Bank-account details",
-              "Payment and invoice records",
-              "Transaction references",
-              "Source-of-funds or source-of-wealth information",
-              "Tax-registration information; and",
-              "Information required for compliance or due-diligence checks.",
+              "Billing and invoice details",
+              "Payment records and transaction references; and",
+              "Bank or payment-provider details necessary to process fees.",
             ]}
           />
           <p>
-            Payment-card information may be processed directly by an authorised payment
-            provider. DSD does not retain complete payment-card information unless necessary,
-            lawful and appropriately secured.
+            Payment processing is generally handled directly by an authorised payment provider or
+            bank transfer. DSD does not retain complete payment-card information unless
+            necessary, lawful and appropriately secured.
           </p>
 
           <p className="mt-4 font-semibold text-text-primary">Service and communication information</p>
           <p>This may include:</p>
           <List
             items={[
-              "Details of your enquiry",
+              "Details of your enquiry or project brief",
               "Services requested or purchased",
-              "Contracts, quotations and instructions",
-              "Email, telephone and messaging correspondence",
-              "Complaints and customer-support records",
-              "Feedback, reviews and survey responses; and",
-              "Records of appointments and meetings.",
+              "Quotations, proposals, and service agreements",
+              "Email, telephone, and messaging correspondence",
+              "Campaign performance data tied to a client's own ad or analytics accounts",
+              "Feedback, reviews, and testimonials you agree to share; and",
+              "Records of calls and meetings.",
             ]}
           />
 
@@ -148,44 +126,33 @@ export function PrivacyPolicyPage() {
               "Internet Protocol address",
               "Browser and device type",
               "Operating system",
-              "Approximate location derived from your IP address",
               "Pages visited and time spent on the website",
-              "Referral source",
-              "Website interactions",
-              "Cookie identifiers; and",
-              "Security and diagnostic information.",
+              "Referral source; and",
+              "Cookie identifiers and local-storage keys.",
             ]}
           />
-          <p>Further information is provided in our Cookie Policy.</p>
-
-          <p className="mt-4 font-semibold text-text-primary">Sensitive personal information</p>
           <p>
-            Where necessary for a requested service or legal obligation, we may process
-            sensitive information, such as biometric, health, criminal-record, family or
-            religious information.
+            Further detail is in our <a href="/cookie-policy" className="text-primary hover:underline">Cookie Policy</a>,
+            including our current, actually-audited list of what this site stores. As of this
+            policy's effective date, this site does not run any analytics or advertising
+            tracking script of its own — that will be updated here if it changes.
           </p>
-          <p>We will collect and process sensitive information only where reasonably necessary and permitted by applicable law.</p>
         </Section>
 
         <Section number={3} title="How we collect information">
           <p>We may collect personal information:</p>
           <List
             items={[
-              "Directly from you",
-              "From a company, employer, agent or representative acting on your behalf",
-              "Through website forms, emails, telephone calls and messaging services",
-              "From identification documents and application forms",
-              "From government authorities, free-zone authorities and official portals",
-              "From banks, professional advisers and service providers",
-              "From publicly available registers, websites and professional platforms",
-              "Through cookies and similar website technologies; and",
-              "During compliance, identity-verification or due-diligence checks.",
+              "Directly from you, through our website's contact and landing-page forms",
+              "Through email, telephone calls, and messaging services",
+              "From a company or representative acting on your behalf",
+              "Through advertising, analytics, or social-media accounts you grant us access to in order to deliver a service; and",
+              "From publicly available business listings, websites, and professional platforms.",
             ]}
           />
           <p>
-            If you provide personal information about another person, you confirm that you are
-            authorised to provide it and, where required, have informed that person about this
-            Privacy Policy.
+            If you provide personal information about another person (for example, a colleague's
+            contact details), you confirm that you are authorised to provide it.
           </p>
         </Section>
 
@@ -194,21 +161,15 @@ export function PrivacyPolicyPage() {
           <List
             items={[
               "Respond to enquiries and provide quotations",
-              "Verify your identity and eligibility",
-              "Create and manage client records",
-              "Provide company-formation and corporate-support services",
-              "Prepare and submit applications under your instructions",
-              "Communicate with licensing, immigration, tax, free-zone and other authorities",
-              "Coordinate services with banks and authorised third-party providers",
-              "Prepare contracts, invoices, receipts and payment records",
-              "Conduct know-your-customer, sanctions, fraud-prevention and other compliance checks",
-              "Meet accounting, tax, regulatory and record-keeping obligations",
-              "Manage appointments, enquiries, complaints and customer support",
-              "Maintain and improve our website and services",
-              "Protect our systems, personnel, clients and business against fraud or misuse",
-              "Send service updates and, where permitted, marketing communications",
-              "Establish, exercise or defend legal rights; and",
-              "Comply with applicable laws, regulatory requests, court orders or government requirements.",
+              "Deliver the services you engage us for — website development, SEO, paid advertising, social media management, content and email marketing, design and branding, app development, ecommerce, and AI integration",
+              "Manage and report on advertising or marketing campaigns run on your behalf",
+              "Prepare contracts, invoices, receipts, and payment records",
+              "Communicate service updates and project status",
+              "Maintain and improve our own website and services",
+              "Protect our systems, personnel, and clients against fraud or misuse",
+              "Send marketing communications, where permitted",
+              "Establish, exercise, or defend legal rights; and",
+              "Comply with applicable laws, regulatory requests, or court orders.",
             ]}
           />
         </Section>
@@ -218,238 +179,162 @@ export function PrivacyPolicyPage() {
           <List
             items={[
               "With your consent",
-              "To respond to your request before entering into an agreement",
+              "To respond to your enquiry before entering into an agreement",
               "To perform a contract or provide a requested service",
               "To comply with a legal or regulatory obligation",
-              "To protect public interests or the interests of the data subject",
-              "To establish, exercise or defend legal claims",
-              "For legitimate business purposes, where permitted and appropriately balanced against individual rights; or",
+              "For our legitimate business interests, appropriately balanced against your rights (for example, improving our services or preventing fraud); or",
               "Under another lawful basis recognised by applicable law.",
             ]}
           />
           <p>
-            Where processing is based on consent, you may withdraw that consent. Withdrawal
-            will not affect processing lawfully completed before the consent was withdrawn.
+            Where processing is based on consent, you may withdraw that consent at any time.
+            Withdrawal will not affect processing lawfully completed before the consent was
+            withdrawn.
           </p>
-          <p>
-            Refusing to provide required information may prevent us from accepting an
-            engagement, completing compliance checks or providing the requested service.
-          </p>
+          <p>Refusing to provide requested information may prevent us from responding to your enquiry or delivering a requested service.</p>
         </Section>
 
-        <Section number={6} title="Identity verification and compliance">
-          <p>
-            Corporate-service applications may require detailed information about
-            shareholders, directors, managers, employees, authorised representatives and
-            beneficial owners.
-          </p>
-          <p>
-            DSD may verify this information using official documents, public records,
-            government systems and approved verification providers. We may also conduct
-            sanctions, politically exposed person, fraud-prevention and other risk-based checks
-            where required or appropriate.
-          </p>
-          <p>We may refuse, suspend or terminate a service where:</p>
-          <List
-            items={[
-              "Required information is not provided",
-              "Information appears inaccurate, misleading or fraudulent",
-              "Identity or authority cannot be verified",
-              "A transaction presents unacceptable legal or compliance risk; or",
-              "Continuing the engagement could breach an applicable requirement.",
-            ]}
-          />
-        </Section>
-
-        <Section number={7} title="Disclosure of personal information">
+        <Section number={6} title="Disclosure of personal information">
           <p>We may disclose personal information, where necessary and lawful, to:</p>
           <List
             items={[
-              "UAE federal or local government authorities",
-              "Immigration, labour, licensing, tax and free-zone authorities",
-              "Municipalities, embassies and consulates",
-              "Banks, insurers and payment providers",
-              "Lawyers, accountants, auditors, tax advisers and translators",
-              "Notaries, attestation providers and document-clearing centres",
-              "Technology, hosting, cybersecurity and communications providers",
-              "Courier and document-delivery providers",
-              "Landlords, business centres and office providers",
-              "DSD affiliates supporting the requested service",
-              "Courts, law-enforcement agencies and regulators; and",
-              "A prospective buyer, investor or successor in connection with a lawful corporate transaction.",
+              "Service providers we use to deliver your project — hosting, email-relay, and form-processing providers (e.g. EmailJS)",
+              "Advertising and analytics platforms (e.g. Google, Meta) when running or reporting on a campaign on your behalf, using accounts you have authorised us to access",
+              "Accountants, auditors, and legal advisers",
+              "Payment providers and banks",
+              "Courts, law-enforcement agencies, and regulators, where legally required; and",
+              "A prospective buyer, investor, or successor in connection with a lawful business transaction.",
             ]}
           />
-          <p>
-            Service providers are expected to process information only for authorised purposes
-            and to apply appropriate confidentiality and security measures.
-          </p>
+          <p>Service providers are expected to process information only for authorised purposes and to apply appropriate confidentiality and security measures.</p>
           <p>DSD does not sell or rent personal information to third parties.</p>
         </Section>
 
-        <Section number={8} title="International transfers">
+        <Section number={7} title="International transfers">
           <p>
-            Some service providers, professional advisers, technology platforms or authorities
-            may process personal information outside the UAE.
+            Some of the third-party tools and advertising platforms we use (for example, cloud
+            hosting or ad platforms) may process personal information outside the UAE.
           </p>
           <p>
-            Where personal information is transferred internationally, we will take reasonable
-            steps to ensure the transfer is permitted and protected through an approved
-            jurisdiction, contractual safeguards, your consent where appropriate, or another
-            legally recognised transfer mechanism.
+            Where personal information is transferred internationally, we take reasonable steps
+            to ensure the transfer is protected through the provider's own safeguards, your
+            consent where appropriate, or another legally recognised transfer mechanism.
+            Different countries may provide different levels of data protection.
           </p>
-          <p>Different countries may provide different levels of data protection.</p>
         </Section>
 
-        <Section number={9} title="Retention of information">
+        <Section number={8} title="Retention of information">
           <p>We retain personal information only for as long as reasonably necessary to:</p>
           <List
             items={[
-              "Provide the requested services",
-              "Maintain accurate corporate and transaction records",
-              "Meet legal, accounting, tax and regulatory requirements",
-              "Resolve complaints or disputes",
-              "Prevent fraud and misuse; and",
-              "Establish, exercise or defend legal claims.",
+              "Provide the requested services and manage the client relationship",
+              "Maintain accurate business and accounting records",
+              "Meet legal, accounting, and tax requirements",
+              "Resolve disputes; and",
+              "Prevent fraud and misuse.",
             ]}
           />
-          <p>Retention periods may vary according to the type of record, the service provided and applicable legal requirements.</p>
           <p>
-            When information is no longer required, we will take reasonable steps to securely
-            delete, destroy or anonymise it, unless continued retention is required or
-            permitted by law.
+            When information is no longer required, we take reasonable steps to securely delete,
+            destroy, or anonymise it, unless continued retention is required or permitted by law.
           </p>
         </Section>
 
-        <Section number={10} title="Information security">
-          <p>We use reasonable administrative, organisational and technical safeguards designed to protect personal information against:</p>
-          <List items={["Unauthorised access", "Accidental loss", "Improper disclosure", "Unlawful alteration", "Misuse; and", "Destruction."]} />
+        <Section number={9} title="Information security">
+          <p>We use reasonable administrative, organisational, and technical safeguards designed to protect personal information against unauthorised access, accidental loss, improper disclosure, unlawful alteration, misuse, and destruction.</p>
+          <p>These safeguards may include access controls, staff confidentiality requirements, secure storage, authentication controls, and security monitoring.</p>
           <p>
-            These safeguards may include access controls, staff confidentiality requirements,
-            secure storage, authentication controls, backups and security monitoring.
-          </p>
-          <p>
-            No website, email service or electronic storage system is completely secure. Users
-            should avoid sending passports, Emirates IDs, banking details or other sensitive
-            documents through unverified communication channels.
-          </p>
-          <p>
-            Always confirm payment instructions through an official DSD contact before
-            transferring money, particularly if bank-account details appear to have changed.
+            No website, email service, or electronic storage system is completely secure. Please
+            avoid sharing advertising-account passwords, payment details, or other sensitive
+            information through unverified communication channels, and always confirm payment
+            instructions through an official DSD contact before transferring money.
           </p>
         </Section>
 
-        <Section number={11} title="Cookies">
+        <Section number={10} title="Cookies">
           <p>
             Our website may use cookies and similar technologies to operate securely, remember
-            user preferences, measure website performance and, where permitted, support
-            advertising or marketing.
+            your preferences, and, where added in future, measure website performance or support
+            advertising.
           </p>
-          <p>
-            Optional analytics, preference and advertising cookies should not be activated
-            until the user has made the relevant selection, where consent is required.
-          </p>
-          <p>Please read our Cookie Policy for further information.</p>
+          <p>Please read our <a href="/cookie-policy" className="text-primary hover:underline">Cookie Policy</a> for the full, current detail.</p>
         </Section>
 
-        <Section number={12} title="Marketing communications">
-          <p>
-            Where permitted, we may use your contact information to send information about DSD
-            services, business updates or promotional offers.
-          </p>
+        <Section number={11} title="Marketing communications">
+          <p>Where permitted, we may use your contact information to send information about DSD's services, case studies, or promotional offers.</p>
           <p>You may opt out at any time by:</p>
           <List
             items={[
               "Using the unsubscribe option in the communication",
               "Replying with an opt-out request; or",
-              "Contacting info@dsdcop.com.",
+              "Contacting info@dsdgrp.com.",
             ]}
           />
-          <p>Opting out of marketing will not prevent us from sending essential messages about an active enquiry, application, payment or service.</p>
+          <p>Opting out of marketing will not prevent us from sending essential messages about an active enquiry, project, or invoice.</p>
         </Section>
 
-        <Section number={13} title="Your rights">
-          <p>Subject to applicable law and relevant exceptions, you may have the right to:</p>
+        <Section number={12} title="Your rights">
+          <p>Subject to applicable law, you may have the right to:</p>
           <List
             items={[
               "Obtain information about how your personal information is processed",
               "Request access to your personal information",
-              "Receive a copy of certain information in a structured and machine-readable format",
               "Request correction of inaccurate or incomplete information",
               "Request deletion of information",
-              "Request restriction or suspension of processing",
+              "Request restriction of processing",
               "Object to or stop direct marketing",
               "Withdraw consent",
-              "Request transfer of information where legally applicable",
-              "Object to certain automated processing decisions; and",
+              "Request transfer of your information, where legally applicable; and",
               "Submit a complaint to the competent data-protection authority.",
             ]}
           />
-          <p>
-            We may request proof of identity and authority before responding. Some rights may
-            be limited where processing is required for legal compliance, public interest,
-            contractual obligations, third-party rights or legal claims.
-          </p>
-          <p>Requests may be submitted to info@dsdcop.com.</p>
+          <p>We may request proof of identity before responding. Requests may be submitted to info@dsdgrp.com.</p>
         </Section>
 
-        <Section number={14} title="Automated decision-making">
+        <Section number={13} title="Automated decision-making">
           <p>
-            DSD does not intend to make decisions producing significant legal effects solely
-            through automated processing unless the process is lawful, necessary and
-            appropriately disclosed.
-          </p>
-          <p>
-            Technology may be used to support identity checks, fraud detection, application
-            administration or customer-service functions. Where required, meaningful human
-            review will be available.
+            DSD does not make decisions producing significant legal effects about you solely
+            through automated processing. Marketing and analytics tools we use may support
+            campaign optimisation or reporting, but do not make binding decisions about
+            individuals without human review.
           </p>
         </Section>
 
-        <Section number={15} title="Children's information">
-          <p>Our website and general corporate services are not directed to children.</p>
-          <p>
-            We do not knowingly collect personal information directly from children for
-            marketing purposes. Information concerning a child may be processed when an
-            authorised parent, guardian, employer or client requests a legitimate immigration,
-            residency or related service and the processing is legally permitted.
-          </p>
+        <Section number={14} title="Children's information">
+          <p>Our website and services are directed at businesses, not children. We do not knowingly collect personal information from children.</p>
         </Section>
 
-        <Section number={16} title="External websites">
-          <p>Our website may contain links to government portals and third-party websites. DSD does not control the privacy or security practices of those websites.</p>
+        <Section number={15} title="External websites">
+          <p>Our website may contain links to client websites, social-media platforms, and other third-party sites. DSD does not control the privacy or security practices of those websites.</p>
           <p>You should review the privacy policy of each external website before providing personal information.</p>
         </Section>
 
-        <Section number={17} title="Updates to this Privacy Policy">
-          <p>We may update this Privacy Policy to reflect changes in our services, website functions or applicable requirements.</p>
-          <p>
-            The updated version will be published on this page with a revised effective date.
-            Material changes may also be communicated through the website or another
-            appropriate channel.
-          </p>
+        <Section number={16} title="Updates to this Privacy Policy">
+          <p>We may update this Privacy Policy to reflect changes in our services, website functions, or applicable requirements.</p>
+          <p>The updated version will be published on this page with a revised effective date.</p>
         </Section>
 
-        <Section number={18} title="Contact us">
-          <p>For questions, requests or complaints concerning personal information, contact:</p>
+        <Section number={17} title="Contact us">
+          <p>For questions, requests, or complaints concerning personal information, contact:</p>
           <p>
-            DSD Corporate Services
+            DSD
             <br />
-            1st Floor, Office 06
+            Office No. 1, 1st Floor, Al Hareb Building
             <br />
-            Al Habeb Building, Umm Hurair Street
+            Umm Hurair Road, Oud Metha, P.O. Box 181040
             <br />
-            Oud Metha, Dubai, United Arab Emirates
+            Dubai, United Arab Emirates
             <br />
             Email:{" "}
-            <a href="mailto:info@dsdcop.com" className="text-primary hover:underline">
-              info@dsdcop.com
+            <a href="mailto:info@dsdgrp.com" className="text-primary hover:underline">
+              info@dsdgrp.com
             </a>
             <br />
-            Website: www.dsdcop.com
+            Website: www.dsdgrp.com
             <br />
             Telephone:{" "}
-            <a href="tel:+971585889033" className="font-mono text-primary hover:underline">
-              +971 58 588 9033
+            <a href="tel:+917585889093" className="font-mono text-primary hover:underline">
+              +91 7585889093
             </a>
           </p>
         </Section>

@@ -3,7 +3,7 @@ import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { badgeColorAt } from "@/lib/utils";
 import { industryIcons } from "@/lib/icons";
 import { industries } from "@/data/industries";
-import industriesBanner from "@/assets/images/hero/home_hero_bg.png";
+import industriesBanner from "@/assets/images/hero/industries_hero.jpg";
 
 export function IndustriesPage() {
   useDocumentTitle("Industries");
@@ -12,7 +12,7 @@ export function IndustriesPage() {
     <>
       <PageHeroBanner
         image={industriesBanner}
-        imagePosition="40% 35%"
+        imagePosition="center 65%"
         eyebrow="Who We Work With"
         title={<>Industries We <span className="text-accent">Serve</span></>}
         description="Real sectors DSD has built for — not a generic checklist."

@@ -8,7 +8,7 @@ import { PageHeroBanner } from "@/components/common/PageHeroBanner";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { projects } from "@/data/projects";
 import { categoryTokens } from "@/theme/tokens";
-import projectHeroBanner from "@/assets/images/hero/home_hero_bg.png";
+import projectHeroBanner from "@/assets/images/hero/project_detail_hero.jpg";
 
 export function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -29,7 +29,7 @@ export function ProjectDetailPage() {
     <>
       <PageHeroBanner
         image={projectHeroBanner}
-        imagePosition="65% 20%"
+        imagePosition="center 30%"
         eyebrow={
           <span
             className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${category.bg} ${category.text}`}

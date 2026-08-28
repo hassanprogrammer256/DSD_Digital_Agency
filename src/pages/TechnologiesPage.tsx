@@ -2,7 +2,7 @@ import { PageHeroBanner } from "@/components/common/PageHeroBanner";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { technologies } from "@/data/technologies";
 import type { TechnologyCategory } from "@/types";
-import techBanner from "@/assets/images/hero/home_hero_bg.png";
+import techBanner from "@/assets/images/hero/technologies_hero.jpg";
 
 // Fixed display order — not derived from the data array, so the page always reads
 // frontend-to-integrations regardless of how technologies.ts happens to be ordered.
@@ -24,7 +24,7 @@ export function TechnologiesPage() {
     <>
       <PageHeroBanner
         image={techBanner}
-        imagePosition="60% 20%"
+        imagePosition="20% center"
         eyebrow="How We Build"
         title={<>Our <span className="text-accent">Technologies</span></>}
         description="The real, current stack behind DSD's work — not a buzzword list."

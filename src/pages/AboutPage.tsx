@@ -9,7 +9,7 @@ import { PageHeroBanner } from "@/components/common/PageHeroBanner";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { founder } from "@/data/founder";
 import storyPhoto from "@/assets/images/about/story.jpeg";
-import heroBannerPhoto from "@/assets/images/hero/home_hero_bg.png";
+import heroBannerPhoto from "@/assets/images/hero/about_hero.jpg";
 
 const VALUE_PROPS = [
   {
@@ -39,7 +39,7 @@ export function AboutPage() {
     <>
       <PageHeroBanner
         image={heroBannerPhoto}
-        imagePosition="20% 35%"
+        imagePosition="center 30%"
         eyebrow="About DSD"
         title="About Us"
         description="DSD is your external team of specialists — helping businesses grow their brand, connect with customers, and increase sales using online platforms, search engines, and digital tools."

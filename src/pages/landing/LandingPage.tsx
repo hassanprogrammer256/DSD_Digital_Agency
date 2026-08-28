@@ -10,16 +10,8 @@ import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { landingLeadSchema, type LandingLeadValues } from "@/lib/validation/landingLeadSchema";
 import { landingOffers } from "@/data/landingPages";
 import { testimonials } from "@/data/testimonials";
-
-// public/dsd_logo.png is served as-is from the root — see architecture.md's public/ convention.
 const logo = "/dsd_logo.png";
 
-// Standalone route, mounted OUTSIDE <App/>'s layout (see router.tsx) — deliberately no
-// Navbar, Footer, or CookieConsentBanner. This follows the high-converting-landing-page
-// checklist: one goal (fill the form), nothing to click away to. The logo below is a plain
-// <img>, not wrapped in a <Link> — the one deliberate exception to "every DSD logo links
-// home" elsewhere on the site, because a clickable logo is exactly the kind of exit ramp this
-// page is built to not have.
 export function LandingPage() {
   const { slug } = useParams<{ slug: string }>();
   const offer = landingOffers.find((o) => o.slug === slug);

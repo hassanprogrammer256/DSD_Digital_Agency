@@ -6,7 +6,7 @@ import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { projects } from "@/data/projects";
 import { categoryTokens } from "@/theme/tokens";
 import type { ProjectCategory } from "@/types";
-import projectsBanner from "@/assets/images/hero/home_hero_bg.png";
+import projectsBanner from "@/assets/images/hero/projects_hero.jpg";
 
 type FilterValue = ProjectCategory | "all";
 
@@ -30,7 +30,7 @@ export function ProjectsPage() {
     <>
       <PageHeroBanner
         image={projectsBanner}
-        imagePosition="80% 60%"
+        imagePosition="center 40%"
         eyebrow="Our Work"
         title={<>Featured <span className="text-accent">Projects</span></>}
         description="A sample of what we've built — filter by discipline to see relevant work."

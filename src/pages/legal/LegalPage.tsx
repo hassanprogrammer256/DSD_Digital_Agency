@@ -3,12 +3,14 @@ import { ArrowRight, Cookie, Handshake, ShieldCheck, TriangleAlert, type LucideI
 import { PageHeroBanner } from "@/components/common/PageHeroBanner";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { badgeColorAt } from "@/lib/utils";
-import legalBanner from "@/assets/images/hero/home_hero_bg.png";
+import legalBanner from "@/assets/images/hero/legal_hero.jpg";
 
 // Hub page for the Navbar's "Legal" dropdown — gives that nav trigger a real route of its
 // own (2026-08-27), matching the pattern every other dropdown-carrying nav item (Services,
 // Compliance) already follows: the trigger links somewhere real, the dropdown is a shortcut
-// to its children, not the only way in.
+// to its children, not the only way in. The 4 linked pages were rewritten 2026-08-28 to
+// carry DSD's real digital-marketing identity (see progress-tracker.md) — this hub's own
+// copy is kept in sync.
 const LEGAL_PAGES: { to: string; title: string; description: string; icon: LucideIcon }[] = [
   {
     to: "/cookie-policy",
@@ -19,7 +21,7 @@ const LEGAL_PAGES: { to: string; title: string; description: string; icon: Lucid
   {
     to: "/privacy-policy",
     title: "Privacy Policy",
-    description: "What personal information DSD Corporate Services collects, why, and your rights over it.",
+    description: "What personal information DSD collects, why, and your rights over it.",
     icon: ShieldCheck,
   },
   {
@@ -43,10 +45,10 @@ export function LegalPage() {
     <>
       <PageHeroBanner
         image={legalBanner}
-        imagePosition="45% 20%"
+        imagePosition="60% 30%"
         eyebrow="Legal"
         title={<>Policies &amp; <span className="text-accent">Agreements</span></>}
-        description="The documents governing how this website and DSD Corporate Services' services work."
+        description="The documents governing how this website and DSD's digital marketing services work."
       />
 
       <div className="bg-surface-secondary px-4 py-16 md:px-6 md:py-20">

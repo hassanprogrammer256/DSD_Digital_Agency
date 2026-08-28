@@ -9,17 +9,8 @@
   font-display: swap;
 }
 
-/* Lets a one-off `dark:` utility target our own [data-theme] attribute instead of
-   Tailwind's default `prefers-color-scheme` behavior — see ui-tokens.md → Theme Toggle.
-   Most color switching should never need this: it happens automatically through the
-   CSS-variable tokens below, this is only an escape hatch for the rare case that isn't
-   already covered by a token. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Tailwind v4 CSS-first theme — every entry here proxies a runtime-switchable custom
-   property defined in :root / [data-theme="dark"] below (see ui-tokens.md → How to Use).
-   Never give a color a literal value here — that would freeze it at build time and break
-   theme switching. */
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -61,7 +52,6 @@
   --font-mono: "Geist Mono", ui-monospace, monospace;
 }
 
-/* Light theme (default) — see ui-tokens.md for the full token reference */
 :root {
   --background: #ffffff;
   --surface: #ffffff;
@@ -71,14 +61,8 @@
   --text-secondary: #54607a;
   --text-muted: #8b93a8;
 
-  /* Fixed in both themes — white text/icons on navy, primary, and accent surfaces, none of
-     which ever lighten in dark mode, so this token deliberately does NOT invert between
-     themes. Only textPrimary/Secondary/Muted (paired with background/surface, which do
-     invert) are theme-dependent. */
   --text-inverse: #ffffff;
 
-  /* Fixed in both themes — DSD's brand navy, not a neutral that should flip with the page's
-     own light/dark mode. Used for the hero overlay, stats strip, and footer. */
   --navy: #0a1b33;
   --navy-elevated: #060f1e;
 
@@ -102,9 +86,6 @@
   color-scheme: light;
 }
 
-/* System-preference fallback for the instant before the app's blocking init script (see
-   index.html) applies an explicit [data-theme] — and for the rare case JS never runs.
-   Never wins over an explicit choice: an explicit data-theme="light" always overrides this. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --background: #0b1220;
@@ -135,9 +116,6 @@
     color-scheme: dark;
   }
 }
-
-/* Explicit dark theme — set on <html> by src/theme/theme.ts, persisted to localStorage.
-   Always wins regardless of system preference. */
 [data-theme="dark"] {
   --background: #0b1220;
   --surface: #141d31;

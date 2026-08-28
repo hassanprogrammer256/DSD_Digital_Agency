@@ -2,12 +2,12 @@ import type { ReactNode } from "react";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { cookieInventory } from "@/data/cookieInventory";
 
-// REAL legal content, transcribed verbatim from "Cookie Policy dsd cop.docx" (supplied
-// 2026-08-27) — not placeholder boilerplate. See progress-tracker.md for the identity
-// discrepancy this content surfaced (this document's operator, "DSD Corporate Services",
-// differs from the site's general "DSD" contact details used elsewhere) and how it was
-// handled. Do not paraphrase or alter this page's wording without updating the source
-// document first — it's a legal policy, not marketing copy.
+// Real legal content, originally transcribed from "Cookie Policy dsd cop.docx" (supplied
+// 2026-08-27), then rewritten 2026-08-28 to carry DSD's real digital-marketing-agency
+// identity instead of the unrelated "DSD Corporate Services" entity the source document
+// described — see progress-tracker.md for the discrepancy and the explicit user decision
+// to resolve it this way. Structure/cookie-category language is retained where still
+// accurate (it already was — a marketing site's cookie taxonomy applies here directly).
 
 // Private, unexported helper — not a one-component-per-file violation, only
 // CookiePolicyPage itself is exported.
@@ -40,12 +40,12 @@ export function CookiePolicyPage() {
       <div className="mx-auto max-w-2xl">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">Legal</p>
         <h1 className="mt-2 text-3xl font-bold text-text-primary md:text-4xl">Cookie Policy</h1>
-        <p className="mt-2 text-sm text-text-muted">Effective date: 26 August 2026</p>
+        <p className="mt-2 text-sm text-text-muted">Effective date: 28 August 2026</p>
 
         <Section number={1} title="Introduction">
           <p>
-            This Cookie Policy explains how DSD Corporate Services ("DSD," "we," "us" or
-            "our") uses cookies and similar technologies on www.dsdcop.com.
+            This Cookie Policy explains how DSD ("DSD," "we," "us" or "our"), a digital
+            marketing agency, uses cookies and similar technologies on www.dsdgrp.com.
           </p>
           <p>It should be read together with our Privacy Policy.</p>
         </Section>
@@ -344,24 +344,24 @@ export function CookiePolicyPage() {
         <Section number={12} title="Contact us">
           <p>For questions concerning cookies or personal information, contact:</p>
           <p>
-            DSD Corporate Services
+            DSD
             <br />
-            1st Floor, Office 06
+            Office No. 1, 1st Floor, Al Hareb Building
             <br />
-            Al Habeb Building, Umm Hurair Street
+            Umm Hurair Road, Oud Metha, P.O. Box 181040
             <br />
-            Oud Metha, Dubai, United Arab Emirates
+            Dubai, United Arab Emirates
             <br />
             Email:{" "}
-            <a href="mailto:info@dsdcop.com" className="text-primary hover:underline">
-              info@dsdcop.com
+            <a href="mailto:info@dsdgrp.com" className="text-primary hover:underline">
+              info@dsdgrp.com
             </a>
             <br />
-            Website: www.dsdcop.com
+            Website: www.dsdgrp.com
             <br />
             Telephone:{" "}
-            <a href="tel:+971585889033" className="font-mono text-primary hover:underline">
-              +971 58 588 9033
+            <a href="tel:+917585889093" className="font-mono text-primary hover:underline">
+              +91 7585889093
             </a>
           </p>
         </Section>

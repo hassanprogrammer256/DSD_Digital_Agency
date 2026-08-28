@@ -1,4 +1,24 @@
 import type { Service, ServiceCategory } from "@/types";
+import seoOptimizationHero from "@/assets/images/services/seo-optimization.jpg";
+import paidAdvertisingPpcHero from "@/assets/images/services/paid-advertising-ppc.jpg";
+import socialMediaManagementHero from "@/assets/images/services/social-media-management.jpg";
+import contentEmailMarketingHero from "@/assets/images/services/content-email-marketing.jpg";
+import influencerMarketingHero from "@/assets/images/services/influencer-marketing.jpg";
+import websiteDevelopmentHero from "@/assets/images/services/website-development.jpg";
+import webAppDevelopmentHero from "@/assets/images/services/web-app-development.jpg";
+import customSystemDevelopmentHero from "@/assets/images/services/custom-system-development.jpg";
+import websiteHostingHero from "@/assets/images/services/website-hosting.jpg";
+import logoDesignHero from "@/assets/images/services/logo-design.jpg";
+import uiUxDesignHero from "@/assets/images/services/ui-ux-design.jpg";
+import graphicDesignHero from "@/assets/images/services/graphic-design.jpg";
+import videoMotionAnimationHero from "@/assets/images/services/video-motion-animation.jpg";
+import iosAppDevelopmentHero from "@/assets/images/services/ios-app-development.jpg";
+import androidAppDevelopmentHero from "@/assets/images/services/android-app-development.jpg";
+import crossPlatformAppDevelopmentHero from "@/assets/images/services/cross-platform-app-development.jpg";
+import shopifyStoreDevelopmentHero from "@/assets/images/services/shopify-store-development.jpg";
+import customEcommerceSolutionsHero from "@/assets/images/services/custom-ecommerce-solutions.jpg";
+import aiChatbotDevelopmentHero from "@/assets/images/services/ai-chatbot-development.jpg";
+import generativeAiIntegrationHero from "@/assets/images/services/generative-ai-integration.jpg";
 
 // 20 offerings across 6 categories (restructured 2026-08-27 — see progress-tracker.md for the
 // removal of the prior corporate-consulting/business-setup services and the Digital
@@ -14,6 +34,11 @@ import type { Service, ServiceCategory } from "@/types";
 // `stats` is PLACEHOLDER DATA (see progress-tracker.md -> Known Gaps) — replace with real
 // numbers before launch. The Awards & Achievements section (and its `ServiceAward` type) was
 // removed 2026-08-27, not left as an empty/placeholder field — see progress-tracker.md.
+//
+// `heroImage` (2026-08-28): each service now has its own distinct, thematically-matched photo
+// (`src/assets/images/services/<slug>.jpg`) instead of every ServiceDetailPage sharing one
+// generic image — see progress-tracker.md for sourcing details (downloaded from Unsplash,
+// verified individually, not auto-picked from search captions alone).
 export const serviceCategoryMeta: { slug: ServiceCategory; label: string }[] = [
   { slug: "digital-marketing", label: "Digital Marketing" },
   { slug: "web-development", label: "Web Development" },
@@ -42,6 +67,7 @@ export const services: Service[] = [
       "Ongoing ranking and traffic reporting",
     ],
     heroHeadline: "Get found by the customers already searching for you.",
+    heroImage: seoOptimizationHero,
     relatedProjectSlugs: ["coastal-dental-seo", "atlas-logistics-seo"],
     teamMemberSlugs: ["sara-ibrahim"],
     stats: [
@@ -65,6 +91,7 @@ export const services: Service[] = [
       "Transparent performance reporting",
     ],
     heroHeadline: "Ad spend that earns its keep — and proves it.",
+    heroImage: paidAdvertisingPpcHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: ["noor-abbas"],
     stats: [
@@ -87,6 +114,7 @@ export const services: Service[] = [
       "Monthly performance reporting",
     ],
     heroHeadline: "A social presence that stays consistent, without it being your job.",
+    heroImage: socialMediaManagementHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: ["noor-abbas"],
     stats: [
@@ -109,6 +137,7 @@ export const services: Service[] = [
       "Open-rate and engagement reporting",
     ],
     heroHeadline: "Content that keeps buyers interested long after the first visit.",
+    heroImage: contentEmailMarketingHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -131,6 +160,7 @@ export const services: Service[] = [
       "Reach, engagement, and conversion reporting",
     ],
     heroHeadline: "Reach an audience that already trusts the person talking about you.",
+    heroImage: influencerMarketingHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -157,6 +187,7 @@ export const services: Service[] = [
       "Content management handover, so you can update it yourself",
     ],
     heroHeadline: "Websites engineered to convert, not just to impress.",
+    heroImage: websiteDevelopmentHero,
     relatedProjectSlugs: ["meridian-retail-storefront", "horizon-realty-website"],
     teamMemberSlugs: ["fatima-noor", "marco-rossi"],
     stats: [
@@ -180,6 +211,7 @@ export const services: Service[] = [
       "Ongoing support after launch",
     ],
     heroHeadline: "Web applications built around how your business actually runs.",
+    heroImage: webAppDevelopmentHero,
     relatedProjectSlugs: ["meridian-retail-storefront", "marketplace-connect-app"],
     teamMemberSlugs: ["arjun-mehta", "ryan-tan"],
     stats: [
@@ -203,6 +235,7 @@ export const services: Service[] = [
       "Documentation and handover",
     ],
     heroHeadline: "The system your workflow needs — not the one a generic tool assumes.",
+    heroImage: customSystemDevelopmentHero,
     relatedProjectSlugs: ["vantage-analytics-cicd", "northbridge-cloud-migration"],
     teamMemberSlugs: ["yusuf-demir", "daniel-osei"],
     stats: [
@@ -225,6 +258,7 @@ export const services: Service[] = [
       "Direct support when something needs attention",
     ],
     heroHeadline: "Hosting you never have to think about.",
+    heroImage: websiteHostingHero,
     relatedProjectSlugs: ["northbridge-cloud-migration", "vantage-analytics-cicd"],
     teamMemberSlugs: ["daniel-osei"],
     stats: [
@@ -252,6 +286,7 @@ export const services: Service[] = [
       "Final files in every format you need (vector, PNG, favicon-ready)",
     ],
     heroHeadline: "A mark that's actually yours, not a template with your name on it.",
+    heroImage: logoDesignHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -274,6 +309,7 @@ export const services: Service[] = [
       "Developer-ready handoff files",
     ],
     heroHeadline: "Interfaces people actually enjoy using, not just look at.",
+    heroImage: uiUxDesignHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -296,6 +332,7 @@ export const services: Service[] = [
       "Brand-consistent asset library for your team",
     ],
     heroHeadline: "On-brand, every post — not just the first one.",
+    heroImage: graphicDesignHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -317,6 +354,7 @@ export const services: Service[] = [
       "Captioning and accessibility pass",
     ],
     heroHeadline: "Built to hold attention in the first two seconds, not just look good after that.",
+    heroImage: videoMotionAnimationHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -343,6 +381,7 @@ export const services: Service[] = [
       "Post-launch monitoring and updates",
     ],
     heroHeadline: "An iOS app that feels like it belongs on the platform.",
+    heroImage: iosAppDevelopmentHero,
     relatedProjectSlugs: ["kss-e-voting-app", "title-plz"],
     teamMemberSlugs: [],
     stats: [
@@ -365,6 +404,7 @@ export const services: Service[] = [
       "Post-launch monitoring and updates",
     ],
     heroHeadline: "Built and tested for the devices your users actually carry.",
+    heroImage: androidAppDevelopmentHero,
     relatedProjectSlugs: ["kss-e-voting-app", "quiz-hub-app"],
     teamMemberSlugs: [],
     stats: [
@@ -387,6 +427,7 @@ export const services: Service[] = [
       "Both App Store and Google Play submission support",
     ],
     heroHeadline: "One build. Both platforms. No duplicated engineering effort.",
+    heroImage: crossPlatformAppDevelopmentHero,
     relatedProjectSlugs: ["quiz-hub-app", "title-plz"],
     teamMemberSlugs: [],
     stats: [
@@ -413,6 +454,7 @@ export const services: Service[] = [
       "Speed and mobile checkout optimization",
     ],
     heroHeadline: "A storefront built to convert, not a theme with your logo on it.",
+    heroImage: shopifyStoreDevelopmentHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -435,6 +477,7 @@ export const services: Service[] = [
       "Admin dashboard for day-to-day operations",
     ],
     heroHeadline: "Built around your catalog, not the other way around.",
+    heroImage: customEcommerceSolutionsHero,
     relatedProjectSlugs: ["minify-gadgets"],
     teamMemberSlugs: [],
     stats: [
@@ -461,6 +504,7 @@ export const services: Service[] = [
       "Conversation analytics and ongoing tuning",
     ],
     heroHeadline: "Real answers, not a scripted decision tree.",
+    heroImage: aiChatbotDevelopmentHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [
@@ -483,6 +527,7 @@ export const services: Service[] = [
       "Usage monitoring and cost controls",
     ],
     heroHeadline: "AI built into your product where it actually helps, not bolted on for its own sake.",
+    heroImage: generativeAiIntegrationHero,
     relatedProjectSlugs: [],
     teamMemberSlugs: [],
     stats: [

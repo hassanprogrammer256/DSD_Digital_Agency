@@ -11,7 +11,6 @@ import { useDocumentTitle } from "@/lib/useDocumentTitle";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import { team } from "@/data/team";
-import serviceHeroPhoto from "@/assets/images/hero/home_hero_bg.png";
 
 export function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -28,8 +27,8 @@ export function ServiceDetailPage() {
   return (
     <>
       <PageHeroBanner
-        image={serviceHeroPhoto}
-        imagePosition="55% 45%"
+        image={service.heroImage}
+        imagePosition="center"
         align="left"
         eyebrow="Services"
         title={service.heroHeadline}
